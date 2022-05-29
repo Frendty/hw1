@@ -1,0 +1,595 @@
+/* Impostazioni generali */
+
+/* Impostazione per tutto il documento html che il margine e il padding siano pari a 0 e il box-sizing come border-box*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: #FFF;
+    font-weight: 400;
+    transition: all 0.4s;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+body {
+    font-family: 'Poppins', Verdana, sans-serif;
+    height: 100%;
+    /*Non impostiamo un font-size di base per il body in quanto è meglio sfruttare la dimensione di default del dispositivo che visualizza la pagina web (16px in generale per i browser desktop)*/
+    color: #333;
+}
+
+/* Header */
+
+nav {
+    background-color: #013268;
+    padding: 0 15px;
+}
+
+nav .menu {
+    list-style-type: none;
+}
+
+.menu-element.btn {
+    padding: 9px 5px;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu .logo {
+    font-size: 1.25em;
+    padding: 7.5px 10px 7.5px 0;
+}
+
+.search-box {
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    width: 30vw;
+    margin-left: 100px;
+    padding: 10px 15px;
+    position: relative;
+}
+
+@media (max-width: 576px) {
+    .search-box {
+        margin-left: 0;
+    }
+}
+
+
+#last-menu-block {
+    display: flex;
+    align-items: center;
+}
+
+.menu li a{
+    display: inline-block;
+    padding: 15px 5px;
+}
+
+.menu li.btn a {
+    text-align: center;
+    padding: 10px 15px;
+    margin: 5px 0;
+
+    background-color: #0258B5;
+    border-radius: 4px;
+}
+
+.menu li.btn a:hover {
+    background-color: #1C8AFF;
+}
+
+.menu li.btn.secondary a {
+    background-color: #B33D32;  
+}
+
+.menu li.btn.secondary a:hover {
+    background-color: #FF6F61;
+}
+
+/* Body */
+
+section {
+    width: 100%;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #F1EEE9;
+}
+
+
+/* Contenuti */
+
+section div.persProfile {
+    width: 100%;
+    margin-top: 0.5%;
+    margin-right: 2%;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.persProfile a
+{
+    color: #777;
+    background-color: #FFF;
+    border-radius: 10px;
+
+    padding: 0.5% 1%;
+}
+
+/* Posts */
+
+section div.post {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background-color: #FFF;
+    border-radius: 10px;
+    margin-top: 3.5%;
+    padding: 1% 1.5%;
+    width: 30vw;
+    height: 100%;
+    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 576px) {
+    section div.post {
+        width: 70vw;
+    }
+}
+
+.post .head {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post .head .info {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 5.5%;
+}
+
+.post .head .wrap-avatar {
+    margin-right: 0.5rem;
+}
+
+.post img {
+    border-radius: 5px;
+}
+
+.post img.avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 45px;
+}
+
+.post i.avatar {
+    font-size: 45px;
+    color: #CCC;
+}
+
+/* @media (max-width: 576px) {
+    .post img.avatar {
+        width: calc(45px - 10%);
+        height: calc(45px - 10%);
+    }
+} */
+
+.post .name {
+    color: #333;
+}
+
+.post .time {
+    color: #777;
+}
+
+.post .desc {
+    padding-bottom: 2%;
+}
+
+.post .footer {
+    display: flex;
+    justify-content: flex-end;
+
+    margin-top: 1rem;
+}
+
+.post .footer i {
+    font-size: 1.5rem;
+    transition: transform 0.15s;
+    cursor: pointer;
+}
+
+.post .footer i:hover {
+    transform: scale(110%);
+}
+
+@media (max-width: 576px) {
+    .post .footer i {
+        font-size: 1rem;
+    }
+}
+
+.post .popInfo {
+    position: relative;
+}
+
+.post .popInfo .popText {
+    visibility: hidden;
+    width: 60px;
+    background-color: #777;
+    color: #FFF;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    position: absolute;
+    z-index: 1;
+    top: 135%;
+    left: 50%;
+    margin-left: -30px;
+
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.popInfo .popText:after {
+    content: "";
+    position: absolute;
+
+    bottom: 100%;
+    left: 50%;
+
+    margin-left: -5px;
+
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #777 transparent;
+}
+
+.popInfo:hover .popText {
+    visibility: visible;
+    opacity: 1;
+}
+
+.post .footer .popInfo:first-child {
+    margin-right: 3%;
+}
+
+.post .comment-box, .post .newComment {
+    background-color: #ECECEC75;
+    border-radius: 10px;
+    padding: 2% 2.5%;
+    margin-bottom: 2%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.post .newComment {
+    justify-content: center;
+}
+
+.post .newComment input{
+    outline: none;
+    border-color: #CCC;
+    border-style: solid;
+    border-radius: 4px;
+    padding: 0.5em 0.25em;
+}
+
+.post .comment-box.hidden, .post .newComment.hidden {
+    display: none;
+}
+
+/* Modale */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    animation-name: slide-in;
+    animation-duration: 0.4s;
+}
+
+@keyframes slide-in {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+.modal-content {
+    background-color: #FEFEFE;
+    margin: 2.5% auto;
+    padding: 0.5% 1%;
+    border: 1px solid #888;
+    border-radius: 10px;
+    width: 80%;
+
+    padding: 0.5% 1%;
+}
+
+/* .modal .modal-content .flex-row {
+    display: flex;
+    align-items: center;
+
+    padding: 0.5% 2.5%;
+} */
+
+.close-modal {
+    color: #B33D32;
+    font-size: 1.75em;
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    cursor: pointer;
+    padding-bottom: 1%;
+}
+
+.close-modal:hover, .close-modal:focus {
+    color: #FF6F61;
+}
+
+.header-modal {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Unsplash Section Modale */
+
+.modal .modal-content .unsplash-section-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal .modal-content .unsplash-section-modal.hidden {
+    display: none;
+}
+
+.modal .modal-content .unsplash-section-modal .search-unsplash {
+    margin-bottom: 2vw;
+}
+
+.modal .modal-content .unsplash-section-modal .search-box {
+    border: 2px solid #0258B5;
+    padding: 3.5% 4%;
+    outline: none;
+    margin-left: 0;
+    position: initial;
+}
+
+.unsplash-section-modal .container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+
+    gap: 5%;
+
+    padding: 0 1%;
+}
+
+.unsplash-section-modal .container .image-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    border-radius: 4px;
+
+    padding: 0.5% 1%;
+    margin-bottom: 4%;
+
+    position: relative;
+}
+
+.unsplash-section-modal .container img {
+    width: 20vw;
+    border-radius: 4px;
+}
+
+.unsplash-section-modal .container .image-box[data-selected="1"] img
+{
+    opacity: 0.6;
+}
+
+.unsplash-section-modal .modal-btn {
+    background-color: #0258B5;
+    border-radius: 4px;
+    color: #FFF;
+    padding: 1% 2%;
+    cursor: pointer;
+    transition: all 0.4s;
+
+    margin-top: 2vw;
+    margin-bottom: 1vw;
+
+    user-select: none;
+}
+
+.unsplash-section-modal .modal-btn:hover {
+    background-color: #1C8AFF;
+}
+
+/* Body Modale */
+
+.body-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.body-modal .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.body-modal.hidden {
+    display: none;
+}
+
+.body-modal .main h4 {
+    margin-bottom: 4%;
+}
+
+.body-modal .main span.info {
+    color: #CCC;
+    font-weight: 400;
+}
+
+.body-modal .main textarea {
+    margin-bottom: 10%;
+    overflow: auto;
+    resize: none;
+    width: 100%;
+    height: 100px;
+    outline-color: #0258B5;
+
+    padding: 2.5% 2%;
+}
+
+/* .body-modal .main input[type=file]{
+    outline: none;
+    border: 2px solid #0258B5;
+    background: none;
+
+    border-radius: 4px;
+    padding: 2.5% 2%;
+    margin-bottom: 3.5%;
+} */
+
+.body-modal .main .modal-btn {
+    background-color: #0258B5;
+    border-radius: 4px;
+    color: #FFF;
+    padding: 4% 5%;
+    cursor: pointer;
+    transition: all 0.4s;
+
+    user-select: none;
+}
+
+.body-modal .main .modal-btn:hover {
+    background-color: #1C8AFF;
+}
+
+.body-modal .main .modal-btn .fa-unsplash {
+    padding-right: 0.5rem;
+}
+
+.body-modal .main p.error {
+    margin-top: 4%;
+}
+
+.body-modal .main .modal-btn.submit {
+    font-size: 1.35em;
+    width: 100%;
+    text-align: center;
+
+    margin-top: 15%;
+}
+
+.body-modal .main .modal-btn.submit[data-active="1"] {
+    background-color: #2ECC40;
+}
+
+.body-modal .main .modal-btn.submit:hover[data-active="1"] {
+    background-color: #01FF70;
+}
+
+.body-modal .main .modal-btn[data-active="0"]
+{
+    cursor: not-allowed;
+    background-color: #CCC;
+}
+
+
+/* Utilità */
+
+.red, .error {
+    color: red;
+}
+
+.margin-footer-post {
+    margin-bottom: 4%;
+}
+
+.display {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+/********************************************************************
+
+                        Pagina "profile.php"
+
+********************************************************************/
+
+.search-box.profile {
+    margin-left: 0;
+}
+
+section div.profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #FFF;
+    border-radius: 10px;
+    margin-top: 3.5%;
+    padding: 1% 1.5%;
+    width: 20vw;
+    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
+}
+
+.profile i.fa-circle-user {
+    font-size: 4.5em;
+    color: #CCC;
+    margin-bottom: 4%;
+}
+
+@media (max-width: 576px)
+{
+    .profile i.fa-circle-user {
+        font-size: 2em;
+    }
+}
+
+/* .profile img.headProfile {
+
+} */
+
+@media (max-width: 576px)
+{
+    .profile .numFollow {
+        font-size: 1em;
+    }
+}

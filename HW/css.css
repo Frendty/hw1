@@ -1,0 +1,302 @@
+/* SPECIFICHE GENERALI */
+
+/* Impostazione per tutto il documento html che il margine e il padding siano pari a 0 e il box-sizing come border-box*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a, p {
+    font-size: 0.875em;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #777;
+    /*margin: 0px;*/
+}
+
+a {
+    transition: all 0.4s;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #49F;
+}
+
+body {
+    font-family: 'Poppins', Verdana, sans-serif;
+    height: 100%;
+    /*Non impostiamo un font-size di base per il body in quanto è meglio sfruttare la dimensione di default del dispositivo che visualizza la pagina web*/
+    color: #333;
+}
+
+input {
+    outline: none;
+    border: none;
+
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.2;
+
+    display: block;
+    width: 100%;
+    height: 55px;
+    background: transparent;
+    padding: 0 7px 0 43px;
+}
+
+input:focus::placeholder {
+    color: transparent;
+}
+
+input::placeholder {
+    color: #adadad;
+}
+
+input [type=submit] {
+    cursor: pointer;
+}
+
+/* SPECIFICHE PARTICOLARI */
+
+section {
+    width: 100%;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background: url("images/pawel-czerwinski-prMn9KINLtI-unsplash.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#login-box {
+    width: 500px;
+    background-color: #FFF;
+    border-radius: 10px;
+    overflow: hidden;
+
+    padding: 65px 55px 54px 55px;
+}
+
+#login-box.register {
+    width: 650px;
+}
+
+@media (max-width: 650px) {
+    #login-box.register {
+        width: 500px;
+    }
+}
+
+@media (max-width: 576px) {
+    #login-box {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+} 
+
+/*
+#login-box form {
+    width: 100%;
+}
+*/
+
+.wrap-fields {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+@media (max-width: 650px) {
+    .wrap-fields {
+        display: block;
+    }
+}
+
+#login-box form span.title {
+    display: block; /* Utilizzo uno span con display settato a block in quanto l'elemento contenuto nel tag è un elemento inline. Uso il display block per ottenere la visualizzazione desiderata, in particolar modo per far si che il text align: center sia una proprietà valida. Questo avviene per altri span a seguire*/
+    font-weight: 700;
+    font-size: 2.4375em;
+    line-height: 1.2;
+    text-align: center;
+    padding-bottom: 49px;
+}
+
+.wrap-input {
+    position: relative;
+    border-bottom: 2px solid #d9d9d9;
+}
+
+#login-box form .wrap-input label, .error-text {
+    font-size: 0.875em;
+    font-weight: 400;
+    line-height: 1.5;
+    padding-left: 7px; /* 2.5% */
+}
+
+.wrap-input span.focus-input {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;  /* Non-reagisce agli eventi del puntatore */
+}
+
+.wrap-input span.focus-input::after {
+    content: attr(data-symbol);  /* Riceve l'icona dall'attributo "data-symbol" del tag span di classe "focus-input" */
+    font-family: 'Material-Design-Iconic-Font';
+    color: #adadad;
+    font-size: 1.375em;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    height: calc(100% - 20px);
+    bottom: 0;
+    left: 0;
+    padding-left: 13px;
+    padding-top: 3px;
+}
+
+.wrap-input span.focus-input::before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #7f7f7f;
+    transition: all 0.4s;
+}
+
+/*
+label:focus + .wrap-input span.focus-input::before {
+    width: 100%;
+}
+*/
+
+
+/* Selettore "+" del CSS: seleziona il primo elemento indicato dal secondo addendo che è posizionato subito dopo l'elemento individuato dal primo addendo */
+.active-input {
+    color: #0086c5;
+}
+
+.container-signin-optns
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-top: 8px;
+    padding-bottom: 31px;
+}
+
+.container-signin-optns.right
+{
+    justify-content: flex-end;
+}
+
+.container-signin-optns label {
+    font-size: 0.875em;
+    font-weight: 400;
+    line-height: 1.7;
+}
+
+.container-signup {
+    padding-top: 8px;
+    padding-bottom: 31px;
+
+    text-align: right;
+}
+
+input[type=checkbox] {
+    width: auto;
+    height: auto;
+
+    display: inline;
+    position: relative;
+    top: -1px;
+    vertical-align: middle;
+    left: 1px;
+}
+
+.container-submit-form-btn {
+    display: flex;
+    justify-content: center;
+    /*flex-wrap: wrap;*/
+}
+
+.wrap-submit-form-btn {
+    width: 100%;
+    /*display: block;*/
+    position: relative;
+    z-index: 1;
+    border-radius: 25px;
+    overflow: hidden;
+    margin: 0 auto;
+    box-shadow: 0 5px 30px 0 rgba(3, 216, 222, 0.2);
+}
+
+.bg-submit-form-btn {
+    position: absolute;
+    z-index: -1;
+    width: 300%;
+    height: 100%;
+    background: #49F;
+    background: linear-gradient(right, #00dbde, #fc00ff, #00dbde, #fc00ff);
+    top: 0;
+    left: -100%;
+    transition: all 0.4s;
+}
+
+input[type=submit] {
+    font-weight: 500;
+    color: #FFF;
+    line-height: 1.2;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+    height: 50px;
+}
+
+.wrap-submit-form-btn:hover .bg-submit-form-btn {
+    left: 0;
+}
+
+/*
+.text {
+    line-height: 1.5;
+}
+*/
+
+/* VALIDATE ALERTS */
+
+.error {
+    color: red;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.red {
+    color: red;
+}
+
+.hidden {
+    display: none;
+}
