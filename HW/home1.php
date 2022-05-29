@@ -41,9 +41,9 @@
                 </nav>
             </header>
             <section>
-                <div class="persProfile">
+<!--                 <div class="persProfile">
                     <a href="profile.php">Profilo</a>
-                </div>
+                </div> -->
             </section>
             <div class="modal">
                 <div class="modal-content">
